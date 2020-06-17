@@ -1,0 +1,83 @@
+CREMENESCU RAUL-VALENTIN - 341C5
+
+TEMA 1 SD
+---------
+
+Arhiva contine 8 fisiere: main.c, parse.c, parse.h, data.c, data.h, List.h, 
+Makefile si README.
+
+Incep prin a aloca o baza de date, apoi citesc de la tastatura comenzile.
+Folosesc fgets, care asteapta sa fie introduse date de la tastatura. 
+Atunci cand functia ParseCmd intoarce 200, sterg baza de date si ies 
+din program.
+
+INIT_DB: Initializeaza baza de date (scrie in campul name numele acesteia).
+
+DELETE_DB: Sterge baza de date (tabelele, si implicit tot ce contine un 
+tabel: coloane, linii).
+
+CREATE: ALoca si introduce un tabel in baza de date.
+
+PRINT_DB: Printeaza baza de date si continutul acesteia.
+
+PRINT: Printeaza tabelul care corespunde numelui din comanda.
+
+SEARCH: Cauta si afiseaza datele din tabelul indicat care respecta 
+conditia specificata.
+
+ADD: Adauga linii in tabel.
+
+DELETE:
+- Sterge tabelul specificat in comanda.
+sau
+- Sterge linii din tabelul indicat care respecta conditia.
+
+CLEAR: Sterge toate liniile dintr-un tabel.
+
+Orice alta comanda nu va fi acceptata.
+
+data.c
+------
+
+removeChar: sterge un caracter dintr-un string (il folosesc pentru a sterge 
+'\n'-ul din string-urile de la capatul comenzii).
+
+Funtiile isEmpty.. verifica daca structura indicata este goala (NULL la 
+inceputul listei).
+
+InitDB: copiaza numele in campul name al bazei de date.
+
+IntrodTable: Aloca si creeaza un tabel care este introdus in lista tables a 
+bazei de date.
+
+PrintTables: Este folosit pentru a printa un anumit tabel, impreuna cu 
+datele din el.
+Il folosesc si la PRINT_DB. Il apelez pentru fiecare tabel in parte.
+
+IntrodColumns: Aloca si introduce coloanele in lista columns a tabelului.
+
+IntrodLine: Introduce linii in tabel.
+
+Functiile Introd{Int, Float, String}Cell introduc celule in linie.
+
+SearchTable: Afiseaza liniile din tabel care respecta conditia (celula care 
+corespunde coloanei sa fie !=, == ,<, <=, >, >= decat o valoare.
+In cazul string-urilor, am observat ca !=, == se refera la faptul ca, 
+cele 2 strig-uri sunt identice, iar in cazul <, <=, >, >=, comparam 
+primul caracter (valorile in ASCII).
+
+DeleteLine: Sterge linia care respecta conditia (2 cazuri: 1. daca aceasta 
+este la inceput, mut head-ul listei la urmatoarea linie.
+2. daca nu este head-ul, pastrez linia anterioara in previous si refac 
+legatura lui previous cu lines: previous->next = lines->next. Apoi sterg 
+celulele din linie, fac free liniei si ii setez adresa ca NULL.
+
+ClearLines: Sterge toate liniile unui tabel. (previous devine linia, linia 
+devine lines->next si fac free de previous si ii setez adresa NULL.
+
+DeleteTable: sterge un tabel (sterge si coloanele si liniile).
+
+DeleteDB: Sterge baza de date si termina programul.
+
+
+PUNCTAJ CHECKER LOCAL: 85/85

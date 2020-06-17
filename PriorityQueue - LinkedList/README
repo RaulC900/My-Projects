@@ -1,0 +1,42 @@
+Nume:CREMENESCU
+Grupă:RAUL-VALENTIN
+
+TEMA 1
+
+Organizare
+-
+1. Explicație pentru structura creată (sau soluția de ansamblu aleasă):
+
+-Am implementat Priority Queue folosind o lista simplu inlantuita.
+-typedef struct node {
+	char *word;
+	int priority;
+	struct node *next;
+ } Node;
+-Structura pt un nod din lista simplu inlantuita.
+-Lista este sortata dupa prioritate descrescator.
+-In Insert (Insert(Node **n, char *w, int p)) vad daca prioritatea data
+este mai mare decat cea a capului listei. Daca nu, iteram cu start prin
+lista si cand gasim un start->next-priority < p, inseram in start.
+-Eliberez queue-ul cu freeQueue.
+-Tema este utila deoarece am reinvatat cum sa fac citiri din fisier si 
+am lucrat cu liste.
+-Implementarea nu este eficienta.
+
+Implementare
+-Este implementat intregul enunt al temei.
+-Nu am functionalitati extra, nici lipsa.
+-Am avut dificulatati la debugging (valgrind).
+-Am redescoperit lucrul cu listele simplu inlantuite de la sd si citirea 
+din fisiere, parsarea comenzilor.
+
+Cum se compilează și cum se rulează?
+-Am linkat libcompare.so pentru Linux si respectiv compare.dll
+ pentru Windows.
+-Executabilul se ruleaza cu argumente: fisiere (valide sau nu) de
+unde va citi datele.
+
+Bibliografie
+-https://ocw.cs.pub.ro/courses/so/laboratoare/laborator-01
+-https://www.includehelp.com/ds/implementation-of-priority-queue-using-linked-list.aspx
+-https://acs.curs.pub.ro/2018/course/view.php?id=150 (Structuri de date)

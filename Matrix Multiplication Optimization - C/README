@@ -1,0 +1,47 @@
+CREMENESCU RAUL-VALENTIN
+333CB
+
+==========
+TEMA 2 ASC
+==========
+
+=============
+solver_blas.c
+=============
+Am folosit functiile:
+--dsyr2k executa C := alpha*A**T*B + alpha*B**T*A + beta*C
+CblassUpper - imi intoarce upper triangular matrix
+CblassTrans - transpune prima matr din inmultiri A->A**T, B->B**T
+N - nr de linii si coloane
+Intoarce rez inmultirii in matricea C
+--dgemm executa C := alpha*op( A )*op( B ) + beta*C
+CblassNoTrans - op(A) = A si op(B) = B
+Inmultirea va fi C*C
+Intoarce rezultatul inmultirii matricelor in C
+==============
+solver_neopt.c
+==============
+Prima oara transpun matricile A si B.
+Apoi daca i <= j (conditie pentru upper triangular matrix, 
+ce nu intra in conditie va ramane 0), calculez A_tr * B, B_tr * A, 
+apoi le adun si le pun in matricea D.
+Inmultesc D * D doar in partea superior triunghiulara 
+(k < j + 1 inseamna ca nu va merge mai jos de diagonala principala).
+============
+solver_opt.c
+============
+Folosec registers pentru ca sunt mai usor de accesat decat memoria.
+Folosesc pointeri pentru matrici.
+La inmultirea A_tr * B, B_tr * A am schimbat si inmultesc: 
+A_tr cu B_tr pe coloane si B_tr cu A_tr la fel 
+(*pb_tr1 este pointer pentru B_tr), pentru ca atunci cand 
+inmulteam A_tr cu B, pointerul lui B trebuia sa se duca cu 
+N pozitii pentru a pointa la valoarea din matrice de pe urmatoarea 
+linie (N fiind foarte mare, timpul de executie era mare).
+Iar in ultima inmultire voi inmulti D cu D_tr la fel ca la pasul anterior.
+===========
+tema2_opt_f
+===========
+Am compilat solver_neopt cu flag-ul -O3 atat pentru gcc cat si pentru icc: 
+acesta incearca sa reduca code size-ul si timpul de executie 
+prin reorganizarea codului.

@@ -1,0 +1,109 @@
+CREMENESCU RAUL-VALENTIN
+333CB
+
+===TEMA 1 SD - ATM===
+
+((atm.h))
+
+typedef struct tuple
+{
+	bool success;
+	char* operation;
+	struct tuple *next;
+
+} Tuple;
+
+-Tuple *history; // (SUCCESS/FAIL, *comanda*)
+-Structura pentru history : tuplu (success, operation)
+-operation e un char * cu operatia executata, iar success e 
+un boolean care ne indica daca operatia s-a efectuat cu succes.
+
+typedef struct card
+{
+	bool inserted;
+	int nr_tries;
+	char *number;
+	char *pin;
+	bool pin_changed;
+	char *month;
+	char *year;
+	char *cvv;
+	int balance;
+	Tuple *history;
+	char *status; //poate fi NEW, ACTIVE sau LOCKED
+	struct card *next;
+
+} Card;
+
+-Structura pentru carduri.
+-inserted se seteaza la true daca s-a facut "insert_card" si la 
+false daca se face "cancel".
+-nr_tries e nr de incercari. Se incrementeaza daca e introdus 
+gresit pin-ul. Daca nr_tries > 3, status va deveni "BLOCKED".
+-number e numarul de identificare al cardului.
+-pin_changed devine true cand schimbam pin-ul initial.
+-history e o lista de elem de tip Tuple (lista istoricului cardului).
+
+typedef struct lsc
+{
+	Card *cardList;
+	int pos;
+	bool hadElem;
+	struct lsc *next;
+
+} LSC;
+
+-Structura pentru lista de submultimi.
+-cardList este lista de carduri asociata submultimii. 
+-pos e numarul submultimii (0, 1, 2, 3, ...).
+-hadElem indica faptul ca am avut carduri in submultime, chiar
+daca in urma operatiilor de delete nu mai exista carduri in 
+cardList. (Am observat in testele locale).
+
+((str_parse.c))
+
+-In functia ReadFile citim din fisierul "input.in" si scriem in 
+"output.out".
+-Prima linie din input este nr max carduri (nr_sub). Inseram in lista 
+de submultimi nr_sub submultimi.
+-Daca vom adauga mai multe carduri decat nr_sub, creeam o lista noua 
+de submultimi (rezerva) cu nr_sub * 2 submultimi, mutand cardurile 
+deja adaugate in lista noua si stergem lista veche (n).
+Cardurile vor fi inserate in submultimi dupa formula subset = 
+sumOfString(nr_card) % nr_sub.
+
+((atm.c))
+
+-isEmptyTuple verifica daca lista istoricului este goala.
+-isEmptyCard verifica daca lista de carduri este goala.
+-isEmptyLSC verifica daca lista de submultimi este goala.
+-InsertCard insereaza un card in lista de carduri c a unei 
+submultimi. (insereaza la inceput)
+-InsertHistory va insera un Tuple (success, operation) in lista 
+de istoric a unui card. (insereaza la inceput)
+-InsertLSC insereaza o submultime la sfarsitul listei de submultimi.
+-deleteCard cauta intr-o submultime pana gaseste cardul cu number = 
+card_id si il sterge.
+-deleteAllCards sterge toate cardurile.
+-deleteAllLSC sterge toate submultimile.
+-plusTransaction aduna sum in balance-ul cardului n.
+-plusTransaction scade sum din balance-ul cardului n.
+-unlockCard seteaza statusul cardului la "ACTIVE".
+-verifyPin verifica daca pin-ul introdus ii corespunde cardului. 
+Daca gresim pin-ul de 3 ori, cardul va fi blocat. Daca incercam 
+sa introducem un card blocat, nu vom putea chiar daca pin-ul este 
+introdus corect de data aceasta.
+-balanceInquiry intoarce balance-ul curent al cardului.
+-pinChange schimba pin-ul.
+-cancel va seta inserted la false.
+-sumOfString e folosit pentru a calcula suma cifrelor numarului 
+unui card.
+-deleteEntry sterge o celula din lista history. (folosit la 
+reverse_transaction).
+-VerificareExistentaCard verifica daca cardul ce urmeaza a fi adaugat 
+exista deja in lista (daca are acelasi number). O folosim atunci cand 
+ajungem la nr_max_carduri pt a verifica daca cardul pe care vrem sa il 
+adaugam exista deja in lista (astfel daca avem 8 carduri si vrem sa 
+adaugam inca unul, daca acesta exista deja atunci noCards ramane 8 
+si nu va mai fi nevoie de redimensionare).
+

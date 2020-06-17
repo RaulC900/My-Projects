@@ -1,0 +1,43 @@
+CREMENESCU RAUL-VALENTIN 341C5
+
+TEMA 1
+
+Se va juca folosind tasta N pentru new game si space pentru saritura.
+Scorul se poate vedea in consola.
+
+Am folosit framework-ul de la laborator. Fisierele mele se afla in folder-ul 
+./Laboratoare/Tema1. In Object2D am implementat functiile CreateRectangle, 
+CreateTriangle, CreateCircle si CreateBackground cu ajutorul carora creez 
+obiectele ce vor fi desenate in scena.
+
+In Transform2D am implementat translatia, scalarea si rotatia.
+In Tema1::Init() creez obiectele si incarc imaginea ce va fi folosita ca 
+textura pt background. De asemenea, aici generez inaltimile random ale 
+obstacolelor.
+
+In Tema1::Update() voi incepe prin a desena background cu textura creata 
+mai inainte. Apoi creez animatia pt pasare, daca a fost apasat space, atunci 
+pasarea va fi indreptata in sus, iar aripile vor fi drepte, iar daca space 
+nu este apasat aceasta va fi indreptata in jos, iar aripile in sus.
+Desenez obstacolele astfel: la orice moment de timp voi avea 4 obstacole pe 
+ecran, iar cand dispare prima din cadru, voi desena alta in marginea din 
+dreapta. pipeX, pipeX1 vor fi coordonatele coltului stanga jos al tevilor 
+de jos.
+
+Daca o teava a iesit din cadru, maresc scorul cu 1 si generez inaltimea 
+tevii ce va aparea in partea din dreapta.
+Maresc dificultatea astfel: cand am trecut de 10 puncte, voi micsora 
+distanta dintre obstacolul de sus si cel de jos, la 20 de puncte 
+micsorez din nou, la 30 de puncte maresc viteza jocului, la 40 de 
+puncte o maresc din nou si micsorez si distanta dintre obstacole si tot 
+asa.
+
+Am implementat coliziunile cu fiecare dintre cele 4 obstacole prezente pe 
+ecran la un moment dat. Daca are loc o coliziune, ecranul va deveni negru, 
+iar pt a incepe un joc nou va trebui sa fie apasata tasta N.
+
+La apasarea tastei SPACE, cresc inaltimea pasarii cu valoarea up, iar 
+atunci cand nu este apasata, aceasta va scadea cu valoarea gravity. La 
+apasarea tastei N se va initia un joc nou.
+
+Scorul este afisat in consola.

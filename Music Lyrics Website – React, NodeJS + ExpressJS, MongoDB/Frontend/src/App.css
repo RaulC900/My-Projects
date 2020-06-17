@@ -1,0 +1,403 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+table, th, td, tbody {
+  border: 1px solid black;
+  margin-left: 10px;
+}
+
+table tr:nth-child(odd) td{
+  background-color: #80808055;
+}
+table tr:nth-child(even) td{
+  background-color: #ffffff;
+}
+
+fieldset {
+  text-align: center;
+}
+
+.login-section {
+  margin-top: 20px;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.input_lyrics {
+  width: 300px;
+  height: 200px;
+}
+
+.lyrics_container {
+  text-align: center;
+}
+
+.lyrics_text {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.lyr {
+  line-height: 5px;
+}
+
+.songName {
+  font-size: 50px;
+  color: #008000;
+  line-height: 20px;
+}
+
+.artistName {
+  font-size: 30px;
+  color: #006000;
+}
+
+.menu_links {
+  margin-left: 10px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.links1 {
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+a:hover {
+  background-color: #dd7f50;
+}
+
+.list {
+  font-size: 20px;
+}
+
+.dada {
+  width: 100px;
+}
+
+.dropdown {
+  width: fit-content;
+}
+
+.labels {
+  font-weight: bolder;
+  min-width: 100px;
+}
+
+.cols {
+  text-align: center;
+  background-color: #DDE;
+  min-height: 100vh;
+}
+
+.two_cols {
+  padding-top: 80px;
+  columns: 2 auto;
+}
+
+.container {
+  min-width: 100%;
+  text-align: center;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.menubar {
+  padding-top: 15px;
+  height: fit-content;
+  background-color: #ff7f50;
+}
+
+.menubar_row {
+  height: fit-content;
+  background-color: #ed7f50
+}
+
+.menubar-container {
+  min-width: 100%;
+}
+
+.song_link {
+  font-size: 20px;
+  color: #000000;
+  font-weight: bolder;
+}
+
+.application {
+  min-width: 100%;
+  min-height: 100vh;
+  background-color: #ed7f50e0;
+}
+
+.edit_button {
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background-color: #ed7f50ff;
+  border: #ed7f70ff;
+}
+
+.input-box {
+  border-radius: 10px;
+  padding: 7px;
+  border-color: #ed7f70ff;
+  outline-color: #ed7f50e0;
+  min-width: 340px;
+  background-color: #ffffdf;
+}
+
+.temp-artists {
+  font-size: 20px;
+  color: #000000;
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.temp-add-artists {
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  background-color: #ed7f50ff;
+  border: #ed7f70ff;
+  margin-left: 10px;
+}
+
+.bottom {
+  margin-left: 10px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.question {
+  padding-left: 5px;
+  font-size: 30px;
+  color: #008000;
+  line-height: 40px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-color: #ff7f50;
+}
+
+.answer {
+  padding: 10px;
+  font-size: 20px;
+  color: #008000;
+  line-height: 30px;
+  text-align: start;
+  background-color: #ed7f50;
+  margin: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-color: #ff7f50;
+}
+
+.faq-questions {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  width: 50%;
+  margin-left: 30px;
+  border-radius: 20px;
+  border-color: #ff7f50;
+}
+
+.input-textarea {
+  border-radius: 10px;
+  padding: 7px;
+  border-color: #ed7f70ff;
+  outline-color: #ed7f50e0;
+  min-width: 800px;
+  background-color: #ffffdf;
+  margin-left: 10px;
+}
+
+.full-width-container {
+  background-color: #DDE;
+  min-height: 100vh;
+}
+
+.label-questions {
+  font-weight: bolder;
+  min-width: 100px;
+  margin-left: 10px;
+}
+
+.authorEmail {
+  padding: 10px;
+  font-size: 15px;
+  color: #000000;
+  line-height: 20px;
+  text-align: start;
+  margin: 0;
+  background-color: #ed7f50;
+  border: 3px solid #ff7f50;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.question1 {
+  padding-left: 5px;
+  font-size: 30px;
+  color: #008000;
+  line-height: 40px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border-color: #ff7f50;
+}
+
+.authorEmail1 {
+  padding: 10px;
+  font-size: 15px;
+  color: #000000;
+  line-height: 20px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border: 3px solid #ff7f50;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.answer1 {
+  padding: 10px;
+  font-size: 20px;
+  color: #008000;
+  line-height: 30px;
+  text-align: start;
+  background-color: #ed7f50;
+  margin: 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-color: #ff7f50;
+}
+
+.comments-text {
+  text-align: center;
+}
+
+.labels1 {
+  font-weight: bolder;
+  min-width: 100px;
+  font-size: 30px;
+}
+
+.line{
+  background-color: #ff7f50;
+  height: 5px;
+  border: 3px solid #ff7f50;
+}
+
+.search-box {
+  border-radius: 10px;
+  padding: 7px;
+  border-color: #ed7f70ff;
+  outline-color: #ed7f50e0;
+  min-width: 250px;
+  background-color: #ffffdf;
+  height: 35px;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+
+.samp0 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  width: 900px;
+  margin-left: 30px;
+  border-radius: 20px;
+  border-color: #ff7f50;
+}
+
+.samp1 {
+  padding: 10px;
+  font-size: 15px;
+  color: #000000;
+  line-height: 20px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border: 3px solid #ff7f50;
+  width: 900px;
+}
+
+.samp2 {
+  padding-left: 10px;
+  font-size: 30px;
+  color: #000000;
+  line-height: 40px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border-color: #ff7f50;
+  width: 900px;
+}
+
+.samp3 {
+  display: block;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  font-size: 31px;
+  color: #008000;
+  line-height: 40px;
+  text-align: start;
+  margin: 0;
+  background-color: #ff7f50;
+  border-color: #ff7f50;
+  width: 900px;
+}
+
+/* #ff7f50
+#ed7f50 */

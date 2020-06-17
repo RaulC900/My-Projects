@@ -1,0 +1,26 @@
+CREMENESCU RAUL-VALENTIN
+333CB
+
+Ex1
+Greedy
+-Am folosit Merge Sort pt a sorta vectorul descrescator si 
+am adunat la scorul lui tuzgu nr de pe pozitiile impare, 
+iar cele de pe pozitii pare la scorul lui ritza.
+
+Ex2
+-Am facut Greedy.
+-Am pus conditia sa inceapa sa stearga de la al doilea nr, care 
+ii corespunde lui ritza. Daca avem duplicate, acesta trece peste 
+ele si incepe sa stearga de la urm nr de dupa ele.
+
+Ex3
+Dynamic Programming
+-Am creeat o matrice cu elemente de tip Scores (tuplu: scor max tuzgu, 
+scor max ritza). Pornind de la diagonala principala catre 
+dreapta sus, am umplut matricea cu scorurile maxime pe care 
+le pot obtine cei doi pt subsecventa respectiva de numere (poz 
+in matrice coresp cu indicii de la inceputul si finalul subsecv).
+-Formulele sunt dp[i][j].tuzgu = max(dp[i+1][j].ritza + v[i], 
+dp[i][j-1].ritza + v[j]) si dp[i][j].ritza = dp[i+1][j].tuzgu || 
+dp[i][j-1].tuzgu.
+-Rezultatul se va gasi la pozitia (0, N-1) a matricei.
